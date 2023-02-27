@@ -9,7 +9,7 @@
 # Extract Elasticsearch artifact
 ################################################################################
 
-FROM centos:8 AS builder
+FROM redhat/ubi8 AS builder
 
 # `tini` is a tiny but valid init for containers. This is used to cleanly
 # control how ES and any child processes are shut down.
@@ -52,7 +52,7 @@ COPY config/elasticsearch.yml config/log4j2.properties config/
 # Add entrypoint
 ################################################################################
 
-FROM centos:8
+FROM redhat/ubi8
 
 ENV JAVA_HOME /usr/share/elasticsearch/jdk
 
